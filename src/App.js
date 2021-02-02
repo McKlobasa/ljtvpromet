@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import './App.css'
 import useInterval from "./hooks/useInterval.js"
+import OnAir from './OnAir.js'
+import Selector from './Selector.js'
 
 /*
 
@@ -51,6 +52,9 @@ function App() {
     "ŠKOFLJICA",
     "TRZIN"
   ]
+  const [chosenImages, setChosenImages] = useState([null, null, null, null, null, null])
+  const [onAir, setOnAir] = useState(false)
+
   const [imageData, setImageData] = useState({
     urls : imgSources,
     time : Date.now()
@@ -59,7 +63,6 @@ function App() {
     urls: imgSources,
     time: Date.now()
   }), 5000)
-  console.log(imageData.urls)
 
   const [imageSet, setImageSet] = useState(0)
 
@@ -67,29 +70,16 @@ function App() {
     <div className="App">
       <div id="aspect_ratio_container">
         <div id="main_container">
-          <div class="image_container_0">
-            <img alt="" class="image" src={`${imageData.urls[0 + 6 * imageSet]}?${Date.now()}`} />
-          </div>
-          <div class="image_container_1">
-            <img alt="" class="image" src={`${imageData.urls[1 + 6 * imageSet]}?${Date.now()}`} />
-          </div>
-          <div class="image_container_2">
-            <img alt="" class="image" src={`${imageData.urls[2 + 6 * imageSet]}?${Date.now()}`} />
-          </div>
-          <div class="image_container_3">
-            <img alt="" class="image" src={`${imageData.urls[3 + 6 * imageSet]}?${Date.now()}`} />
-          </div>
-          <div class="image_container_4">
-            <img alt="" class="image" src={`${imageData.urls[4 + 6 * imageSet]}?${Date.now()}`} />
-          </div>
-          <div class="image_container_5">
-            <img alt="" class="image" src={`${imageData.urls[5 + 6 * imageSet]}?${Date.now()}`} />
-          </div>
+          { onAir 
+                  ? <OnAir locations={locations} images={chosenImages.map((number, iter) => imgSources[number])} /> 
+                  : <Selector locations={locations} 
+                              images={imgSources} 
+                              setChosenImages={setChosenImages}
+                    />
+          }
         </div>
+        <button onClick={() => setOnAir(!onAir)}>{ onAir ? 'pojdi na izbiro' : 'pojdi on air' }</button>
       </div>
-      <button onClick={() => { setImageSet(0) }}>Slovenia</button>
-      <button onClick={() => { setImageSet(1) }}>okolica ljubljane</button>
-      <button onClick={() => { setImageSet(2) }}>obvoznica</button>
     </div>
   )
 }
