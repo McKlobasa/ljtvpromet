@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import React from 'react'
 
 const Grid = styled.div`
-  height: 90vh;
-  width: 160vh;
+  height: 45vw;
+  width: 80vw;
   display: grid;
   overflow: hidden;
   grid-template-columns: 33.3% 33.3% 33.3%;
