@@ -10,6 +10,8 @@ const Button = styled.button`
   position: relative;
   background: none;
   border: none;
+  min-height: 120px;
+  min-width: 120px;
 `
 const ButtonText = styled.div`
   color: red;
@@ -17,6 +19,18 @@ const ButtonText = styled.div`
   position: absolute;
   top: 10px;
   right: 20px;
+`
+const PreLoad = styled.div`
+  box-sizing:  border-box;
+  height: 90;
+  padding: 10px;
+  width: 90px;
+  z-index: -10;
+  font-size: 10px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: gray;
 `
 export default function OnAir (props) {
   const [availableNumbers, setAvailableNumbers] = useState([6,5,4,3,2,1])
@@ -59,6 +73,7 @@ export default function OnAir (props) {
       {props.images.map((image, iter) =>  <Button onClick={() => manageNumber(iter)}>
                                             <Image alt="" height={'100px'} src={`${image}?${Date.now()}`} />
                                             <ButtonText>{numbers[iter]}</ButtonText>
+                                            <PreLoad>LOADING ...</PreLoad>
                                           </Button>) }
 
     </div>

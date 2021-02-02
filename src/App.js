@@ -70,8 +70,8 @@ function App() {
   return (
     <div className="App">
           { onAir 
-                  ? <OnAir locations={locations} images={chosenImages.map((number, iter) => imgSources[number])} /> 
-                  : <Selector locations={locations} 
+                  ? <OnAir locations={chosenImages.map((image, iter) => locations[image])} images={chosenImages.map((number, iter) => imgSources[number])} /> 
+                  : <Selector  
                               images={imgSources} 
                               setChosenImages={setChosenImages}
                     />
