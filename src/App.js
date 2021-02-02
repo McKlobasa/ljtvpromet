@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import useInterval from "./hooks/useInterval.js"
 import OnAir from './OnAir.js'
 import Selector from './Selector.js'
+import './App.css'
 
 /*
 
@@ -68,8 +69,6 @@ function App() {
 
   return (
     <div className="App">
-      <div id="aspect_ratio_container">
-        <div id="main_container">
           { onAir 
                   ? <OnAir locations={locations} images={chosenImages.map((number, iter) => imgSources[number])} /> 
                   : <Selector locations={locations} 
@@ -77,9 +76,7 @@ function App() {
                               setChosenImages={setChosenImages}
                     />
           }
-        </div>
         <button onClick={() => setOnAir(!onAir)}>{ onAir ? 'pojdi na izbiro' : 'pojdi on air' }</button>
-      </div>
     </div>
   )
 }
