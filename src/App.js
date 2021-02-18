@@ -61,6 +61,7 @@ function App() {
     time : Date.now()
   })
   useInterval (() => setImageData({
+    //tole je sam zato, da se slike updajtajo
     urls: imgSources,
     time: Date.now()
   }), 5000)

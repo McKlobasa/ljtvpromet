@@ -2,14 +2,15 @@ import styled from 'styled-components'
 import React from 'react'
 
 const Grid = styled.div`
-  height: 45vw;
-  width: 80vw;
+  height: 53.44vw;
+  width: 95vw ;
   display: grid;
   overflow: hidden;
   grid-template-columns: 33.3% 33.3% 33.3%;
   grid-template-rows: 50% 50%;
   margin: auto;
   margin-top: 30px;
+  margin-bottom: 30px;
 `
 const ImageContainer = styled.div`
   position: relative;
@@ -17,7 +18,8 @@ const ImageContainer = styled.div`
   width: fit-content;
 `
 const Image = styled.img`
-  height: 45vh;
+  height: 100%;
+  width: auto;
   overflow: hidden;
   position: relative;
 `
