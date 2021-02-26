@@ -74,6 +74,7 @@ export default function OnAir (props) {
                                             <Image alt="" height={'100px'} src={`${image}?${Date.now()}`} />
                                             <ButtonText>{numbers[iter]}</ButtonText>
                                             <PreLoad>LOADING ...</PreLoad>
+                                            <p>{props.locations[iter]}</p>
                                           </Button>) }
 
     </div>

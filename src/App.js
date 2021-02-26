@@ -75,6 +75,7 @@ function App() {
                   : <Selector  
                               images={imgSources} 
                               setChosenImages={setChosenImages}
+                              locations={locations}
                     />
           }
         <button onClick={() => setOnAir(!onAir)}>{ onAir ? 'pojdi na izbiro' : 'pojdi on air' }</button>
